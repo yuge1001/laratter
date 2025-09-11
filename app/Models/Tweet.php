@@ -12,6 +12,10 @@ class Tweet extends Model
 
   protected $fillable = ['tweet'];
 
+  public function liked()
+    {
+      return $this->belongsToMany(User::class)->withTimestamps();
+    }
   public function user()
   {
     return $this->belongsTo(User::class);

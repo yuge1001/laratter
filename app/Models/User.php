@@ -12,6 +12,11 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    public function likes()
+    {
+        return $this->belongsToMany(Tweet::class)->withTimestamps();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
