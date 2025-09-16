@@ -36,9 +36,11 @@ class TweetLikeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Tweet $tweet,Comment $comment)
     {
         //
+         $tweet->load('comments');
+         return view('tweets.show', compact('tweet'));
     }
 
     /**
