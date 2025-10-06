@@ -28,6 +28,22 @@
                  <button type="submit" class="text-blue-500 hover:text-blue-700">like {{$tweet->liked->count()}}</button>
                 </form>
               @endif
+              @if(auth()->user()->bookmarks->contains($tweet->id))
+                <form action="{{ route('bookmarks.destroy', $tweet->id) }}" method="POST" class="ml-2">
+                 @csrf
+                 @method('DELETE')
+                  <button type="submit" class="text-red-500 hover:text-red-700">
+                   ブックマーク解除
+                  </button>
+                </form>
+               @else
+                <form action="{{ route('bookmarks.store', $tweet->id) }}" method="POST" class="ml-2">
+                 @csrf
+                  <button type="submit" class="text-blue-500 hover:text-blue-700">
+                   ブックマーク
+                  </button>
+                </form>
+               @endif
              </div>
           </div>
           @endforeach
