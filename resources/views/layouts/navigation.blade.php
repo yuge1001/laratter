@@ -26,9 +26,11 @@
                     </x-nav-link>
                     <x-nav-link :href="route('profile.show', auth()->user())" :active="request()->routeIs('profile.show')">
                        {{ __('マイページ') }}
+                    </x-nav-link>       
+                    <x-nav-link :href="route('bookmarks.index')" :active="request()->routeIs('bookmarks.index')">
+                       {{ __('ブックマーク') }}
                     </x-nav-link>
                 </div>
-            </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -94,8 +96,12 @@
             <x-responsive-nav-link :href="route('profile.show', auth()->user())" :active="request()->routeIs('profile.show')">
                 {{ __('マイページ') }}
             </x-responsive-nav-link>
-        </div>
+            <x-responsive-nav-link :href="route('bookmarks.index')" :active="request()->routeIs('bookmarks.index')">
+                {{ __('ブックマーク') }}
+            </x-responsive-nav-link>
 
+        </div>
+    </div>
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
