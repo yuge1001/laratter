@@ -15,6 +15,7 @@
                             <p>{{ $tweet->tweet }}</p>
                             <small>投稿日: {{ $tweet->created_at->format('Y-m-d H:i') }}</small><br>
                             <small>ブックマークした日: {{ $tweet->pivot->created_at->format('Y-m-d H:i') }}</small>
+                            <small>コメント:{{$tweet->created_at->format('Y-m-d H:i') }}</small>
                             <form action="{{ route('bookmarks.destroy', $tweet) }}" method="POST" class="mt-2">
                                   @csrf
                                   @method('DELETE')
